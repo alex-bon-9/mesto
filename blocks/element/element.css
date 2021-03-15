@@ -1,0 +1,10 @@
+.element {
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  list-style-type: none;
+  box-sizing: border-box;
+}
