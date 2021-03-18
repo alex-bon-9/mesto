@@ -5,8 +5,9 @@
   border: 2px solid #FFFFFF;
   box-sizing: border-box;
   border-radius: 2px;
-  background-image: url(../../../images/Vector-plus.svg);
-  background-size: cover;
+  background-image: url(../../../images/vector-plus.svg);
+  /*background-size: cover;*/
+  /*display: flex;*/
   background-repeat: no-repeat;
   background-color: #000;
   background-size: 22px 22px; /*размер svg + */
