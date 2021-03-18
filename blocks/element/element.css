@@ -5,3 +5,15 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px 17px;
 }
+
+@media screen and (max-width: 920px) {
+  .element {
+    grid-template-columns: repeat(2, 282px);
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 620px) {
+  .element {
+    grid-template-columns: 282px;
+  }
+}

@@ -8,3 +8,13 @@
   color: #FFF;
   font-family: 'Inter', Arial, sans-serif; /*поменять шрифт ?!*/
 }
+@media screen and (max-width: 920px) {
+  .page__container {
+    width: calc(100% - 40px);
+  }
+}
+@media screen and (max-width: 420px) {
+  .page__container {
+    width: 100%;
+  }
+}

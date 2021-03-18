@@ -2,3 +2,11 @@
   display: flex;
   align-self: start;
 }
+
+@media screen and (max-width: 420px) {
+  .header__logo {
+    width: 104px;
+    height: 24px;
+    margin-left: 27px;
+  }
+}

@@ -1,7 +1,7 @@
 .element__like-button {
   padding: 0;
-  width: 25px;
-  height: 21px;
+  width: 26px; /*25px*/
+  height: 22px; /*21px*/
   border: none;
   background-color: transparent;
   background-image: url(../../../images/Vector-like.svg);

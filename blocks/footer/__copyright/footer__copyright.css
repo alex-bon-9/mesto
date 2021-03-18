@@ -6,3 +6,11 @@
   color: #545454;
   /*color: rgba(84, 84, 84, 1);*/
 }
+
+@media screen and (max-width: 420px) {
+  .footer__copyright {
+    margin-left: 19px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

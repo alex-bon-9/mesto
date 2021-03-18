@@ -4,11 +4,8 @@
   align-items: flex-start;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 760px) {
   .footer {
-  }
-}
-@media screen and (max-width: 767px) {
-  .footer {
+    padding-top: 48px;
   }
 }

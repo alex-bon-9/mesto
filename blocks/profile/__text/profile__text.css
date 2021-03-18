@@ -4,3 +4,20 @@
   font-size: 18px;
   line-height: 22px;
 }
+
+@media screen and (max-width: 680px) {
+  .profile__text {
+    padding-right: 24px; /*чтобы текст был приближен к макету*/
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+  }
+}
+/*@media screen and (max-width: 420px) {
+  .profile__text {
+    padding-right: 24px;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+  }
+}*/
