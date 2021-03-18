@@ -1,10 +1,10 @@
 .page__container {
   margin: 0 auto; /*контент отцентрован*/
-  max-width: 1280px;
-  min-width: 320px;
-  display: flex;
+  max-width: 882px; /*задать ширину один раз для всего контейнера*/
+  min-width: 320px; /*возможно поменять на 300px*/
+  /*display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  color: #FFFFFF;
+  align-items: flex-start;*/
+  color: #FFF;
   font-family: 'Inter', Arial, sans-serif; /*поменять шрифт ?!*/
 }

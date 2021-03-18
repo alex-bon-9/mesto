@@ -1,5 +1,5 @@
 .profile__info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  margin-right: auto; /*330-430px*/
 }

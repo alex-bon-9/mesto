@@ -10,69 +10,65 @@
   <div class="page__container">
     <header class="header">
       <img class="header__logo" src="./images/logo.svg" alt="Логотип" />
-      <img class="header__line" src="./images/Line.svg" alt="Линия" />
     </header>
     <main class="content">
 
-      <section class="profile" aria-label="секция профиля">
+      <section class="profile" aria-label="секция профиль">
         <img class="profile__avatar" src="./images/image__kusto.png" alt="аватар исследователя" />
-        <form class="profile__info">
-          <h1 class="profile__title">Жак-Ив Кусто
-            <img class="profile__edit-button" src="./images/Edit Button.svg" alt="кнопка редактировать" />
-          </h1>
-          <!--<img class="profile__edit-button" src="./images/Edit Button.svg" alt="кнопка редактировать" />-->
-          <!--<button type="button" class="profile__edit-button">
-          </button>-->
+        <div class="profile__info">
+          <div class="profile__title-wrap">
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <button type="button" class="profile__edit-button"></button>
+          </div>
           <p class="profile__text">Исследователь океана</p>
-        </form>
-        <img class="profile__add-button" src="./images/Add Button.svg" alt="кнопка добавить фото" />
-        <!--<button src='.' type="button" class="profile__add-button">
-        </button>-->
+        </div>
+        <button type="button" class="profile__add-button">
+        </button>
 
       </section>
 
       <section class="elements" aria-label="секция карточек">
         <ul class="element">
           <li class="element__item">
-            <img class="element__image" alt="фото Карачаевск" src="./images/foto karachaevsk.png" />
+            <img class="element__image" alt="Ординская пещера" src="./images/image1.jpg" />
             <div class="element__group">
-              <h2 class="element__group-title">Карачаевск</h2>
-              <img class="element__group-vector" alt="кнопка нравится" src="./images/Vector.svg" />
+              <h2 class="element__group-title">Пермский край</h2>
+              <button class="element__like-button element__like-button_active" type="button"></button>
             </div>
           </li>
           <li class="element__item">
-            <img class="element__image" alt="фото гора эльбрус" src="./images/foto gora-elbrus.png" />
+            <img class="element__image" alt="Кутхины Баты" src="./images/image2.jpg" />
             <div class="element__group">
-              <h2 class="element__group-title">Гора Эльбрус</h2>
-              <img class="element__group-vector" alt="кнопка нравится" src="./images/Vector.svg" />
+              <h2 class="element__group-title">Камчатка</h2>
+              <button type="button" class="element__like-button"></button>
             </div>
           </li>
           <li class="element__item">
-            <img class="element__image" alt="фото домбай" src="./images/foto dombayi.png" />
+            <img class="element__image" alt="Соловецкий монастырь" src="./images/image6.jpg" />
             <div class="element__group">
-              <h2 class="element__group-title">Домбай</h2>
-              <img class="element__group-vector" alt="кнопка нравится" src="./images/Vector.svg" />
+              <h2 class="element__group-title">Архангельская область</h2>
+              <button type="button" class="element__like-button"></button>
             </div>
           </li>
           <li class="element__item">
-            <img class="element__image" alt="Гора эльбрус2" src="./images/foto gora-elbrus.png" />
+            <img class="element__image" alt="Розовое озеро" src="./images/image4.jpg" />
             <div class="element__group">
-              <h2 class="element__group-title">Гора эльбрус2</h2>
-              <img class="element__group-vector" alt="кнопка нравится" src="./images/Vector.svg" />
+              <h2 class="element__group-title">Крым</h2>
+              <button type="button" class="element__like-button"></button>
             </div>
           </li>
           <li class="element__item">
-            <img class="element__image" alt="Домбай2" src="./images/foto dombayi.png" />
+            <img class="element__image" alt="Чарские пески" src="./images/image5.jpg" />
             <div class="element__group">
-              <h2 class="element__group-title">Домбай2</h2>
-              <img class="element__group-vector" alt="кнопка нравится" src="./images/Vector.svg" />
+              <h2 class="element__group-title">Забайкалье</h2>
+              <button type="button" class="element__like-button"></button>
             </div>
           </li>
           <li class="element__item">
-            <img class="element__image" alt="Карачаево-Ч..." src="./images/foto karachaevsk.png" />
+            <img class="element__image" alt="Вулкан Креницына" src="./images/image3.jpg" />
             <div class="element__group">
-              <h2 class="element__group-title">Карачаево-Ч...</h2>
-              <img class="element__group-vector" alt="кнопка нравится" src="./images/Vector.svg" />
+              <h2 class="element__group-title">Курильские острова</h2>
+              <button type="button" class="element__like-button"></button>
             </div>
           </li>
         </ul>
@@ -82,6 +78,8 @@
     <footer class="footer">
       <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
     </footer>
+    <div class="popup"> <!--невидимый на странице контент нужно выносить под footer, чтобы он не отнимал время для загрузки видимой части страницы-->
+    </div>
   </div>
 </body>
 </html>

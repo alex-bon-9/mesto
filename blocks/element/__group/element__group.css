@@ -1,7 +1,8 @@
 .element__group {
-  margin: 25px 15px 31px 21px;
-  max-width: 246px;
+  padding: 25px 15px 30px 21px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  background-color: #FFF;
+  color: #000000;
 }

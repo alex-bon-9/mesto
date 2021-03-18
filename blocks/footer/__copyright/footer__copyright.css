@@ -1,6 +1,8 @@
-.profile__text {
+.footer__copyright {
   margin: 0;
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
+  color: #545454;
+  /*color: rgba(84, 84, 84, 1);*/
 }

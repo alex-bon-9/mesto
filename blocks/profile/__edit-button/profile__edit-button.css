@@ -1,3 +1,18 @@
 .profile__edit-button {
   margin-left: 18px;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #FFFFFF;
+  box-sizing: border-box;
+  background-image: url(../../../images/edit-button.svg);
+  background-color: #000;
+  background-size: 10px 10px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transition: .2s linear;
+}
+.profile__edit-button:hover {
+  opacity: .6;
+  cursor: pointer; /*рука при наведении*/
 }
