@@ -1,5 +1,6 @@
 .popup {
-  display: none; /*block*/
+  display: block;
+  /*visibility: hidden;*/
   position: fixed;
   top: 0;
   left: 0;
