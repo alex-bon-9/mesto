@@ -80,14 +80,14 @@
     </footer>
     <section class="popup"> <!--невидимый на странице контент нужно выносить под footer, чтобы он не отнимал время для загрузки видимой части страницы-->
       <div class="popup__container">
-        <form action="#" class="popup__form">
-          <button type="button" class="popup__close-button"></button>
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <fieldset class="popup__input-wrap">
-            <input type="text" placeholder="Имя" class="popup__input popup__input-name" value="Жак-Ив Кусто">
-            <input type="text" placeholder="О себе" class="popup__input popup__input-job" value="Исследователь океана">
+        <button class="popup__close-button" type="button" form="data"></button> <!--кнопка закрытия не в форме по образцу ревью-->
+        <form class="form" name="edit-profile" action="#" id="data">
+          <h2 class="form__title">Редактировать профиль</h2>
+          <fieldset class="form__input-wrap">
+            <input class="form__input form__input_type_name" name="name" type="text" placeholder="Имя" form="data" value="Жак-Ив Кусто">
+            <input class="form__input form__input_type_job" name="job" type="text" placeholder="О себе" form="data" value="Исследователь океана">
           </fieldset>
-          <button type="submit" class="popup__save-button">Сохранить</button>
+          <button class="form__save-button" type="submit" form="data">Сохранить</button>
         </form>
       </div>
     </section>

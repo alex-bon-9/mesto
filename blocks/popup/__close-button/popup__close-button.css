@@ -4,8 +4,8 @@
   outline: none;
   background: transparent;
   position: absolute;
-  top: -32px;
-  left: 424px;
+  top: calc(50% - 206px);
+  left: calc(50% + 206px);
   z-index: 5;
   width: 40px;
   height: 40px;
@@ -19,9 +19,10 @@
   opacity: .6;
 }
 
+
 @media screen and (max-width: 590px) {
   .popup__close-button {
-    top: -50px;
-    left: 244px;
+    top: calc(50% - 216px);
+    left: calc(50% + 108px);
   }
 }

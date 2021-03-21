@@ -1,10 +1,10 @@
-.popup__input-wrap {
+.form__input-wrap {
   margin: 0 36px 0 36px;
   padding: 0;
   border: none;
 }
 @media screen and (max-width: 590px) {
-  .popup__input-wrap {
+  .form__input-wrap {
     margin: 0 22px 0px 22px;
   }
 }
