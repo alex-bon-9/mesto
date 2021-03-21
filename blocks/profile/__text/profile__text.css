@@ -1,12 +1,18 @@
 .profile__text {
   margin: 0;
+  max-width: 336px;
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 680px) {
   .profile__text {
+    margin-left: 19px;
+    max-width: 280px;
     padding-right: 24px; /*чтобы текст был приближен к макету*/
     font-size: 14px;
     line-height: 17px;
