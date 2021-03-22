@@ -23,10 +23,10 @@ function formSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
     titleProfile.textContent = nameInput.value;  // Выберите элементы, куда должны быть вставлены значения полей
     textProfile.textContent = jobInput.value; // Вставьте новые значения с помощью textContent
+    closePopup(); //вызвали функцию closePopup внутри
 }
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
-formElement.addEventListener('submit', closePopup);  //закрытие попапа при нажатии сохранить
 formElement.addEventListener('submit', formSubmitHandler);
 
 
