@@ -70,11 +70,12 @@ function createCard(item) {
 function addCards() {
     const placeElements = initialCards.forEach(function(item) {
         createCard(item.name, item.link);
+        insertElementAfter.append(placeElements);
     });
-    insertElementAfter.append(placeElements);
 }
 
 addCards();
+
 
 /*
 const cards = initialCards.forEach(function(item) {
