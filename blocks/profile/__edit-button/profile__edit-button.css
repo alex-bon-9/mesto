@@ -10,7 +10,6 @@
   background-size: 10px 10px;
   background-repeat: no-repeat;
   background-position: 50%;
-  transition: .2s linear;
 }
 .profile__edit-button:hover {
   opacity: .6;

@@ -1,15 +1,17 @@
 .element__like-button {
-  padding: 0;
-  width: 26px; /*25px*/
-  height: 22px; /*21px*/
-  border: none;
-  outline: none;
-  background-color: transparent;
-  background-image: url(../../../images/Vector-like.svg);
-  background-size: cover;
-  transition:  .2s linear; /*для красоты*/
+    padding: 0;
+    width: 26px;
+    /*25px*/
+    height: 22px;
+    /*21px*/
+    border: none;
+    outline: none;
+    background-color: transparent;
+    background-image: url(../../../images/Vector-like.svg);
+    background-size: cover;
 }
+
 .element__like-button:hover {
-  opacity: .5;
-  cursor: pointer;
+    opacity: .5;
+    cursor: pointer;
 }

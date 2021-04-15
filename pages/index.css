@@ -46,6 +46,7 @@
 
 /*карточка*/
 
+@import url('../blocks/element/__delete-button/element__delete-button.css');
 @import url('../blocks/element/__image/element__image.css');
 @import url('../blocks/element/__group/element__group.css');
 @import url('../blocks/element/__group-title/element__group-title.css');
@@ -81,4 +82,11 @@
 @import url('../blocks/form/__save-button/form__save-button.css');
 @import url('../blocks/form/form.css');
 
-/**popup-add*/
+/*popup-add*/
+
+/*Ниже поп-ап по open foto а выше должен быть импортированы стили для открытия формы - добавить фото и для ее полей см. р. Ю.*/
+@import url('../blocks/popup-open-photo/popup-open-photo.css'); /*popup open foto*/
+@import url('../blocks/popup-open-photo/__container/popup-open-photo__container.css'); /*container*/
+@import url('../blocks/popup-open-photo/__close-button/popup-open-photo__close-button.css'); /*close button*/
+@import url('../blocks/popup-open-photo/__image/popup-open-photo__image.css'); /*image*/
+@import url('../blocks/popup-open-photo/__caption/popup-open-photo__caption.css'); /*caption*/

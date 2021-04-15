@@ -1,5 +1,5 @@
-.element__like-button_active:active {
+.element__like-button_active {
   background-image: url(../../../../images/vector-black-like.svg);
   opacity: 1;
-  }
-  /*закрашивается при нажатии, если держать кнопку мыши, в этом спринте достаточно?!*/
+}
+/*закрашивается при нажатии, если держать кнопку мыши, в этом спринте достаточно?!*/

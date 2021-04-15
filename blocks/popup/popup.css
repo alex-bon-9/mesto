@@ -9,4 +9,6 @@
   align-items: center;
   visibility: hidden;
   background-color: rgba(0, 0, 0, .5);/*здесь затемнение применяется*/
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
 }

@@ -26,19 +26,19 @@
                 </div>
                 <button type="button" class="profile__add-button">
         </button>
-
             </section>
 
             <section class="elements" aria-label="секция карточек">
                 <ul class="element">
                     <template class="element-template">
-            <li class="element__item">
+          <li class="element__item">
+            <button class="element__delete-button" aria-label="delete" type="button"></button>
             <img class="element__image" alt="Ординская пещера" src="./images/image1.jpg" />
             <div class="element__group">
               <h2 class="element__group-title">Пермский край</h2>
-              <button class="element__like-button element__like-button_active" type="button"></button>
+              <button class="element__like-button" type="button"></button>
             </div>
-            </li>
+          </li>
           </template>
                 </ul>
             </section>
@@ -64,7 +64,7 @@
         <section class="popup popup_add-photo">
             <!--невидимый на странице контент нужно выносить под footer, чтобы он не отнимал время для загрузки видимой части страницы-->
             <div class="popup__container">
-                <button class="popup__close-button popup__close-add-button" type="button" form="list-photo"></button>
+                <button class="popup__close-button" type="button" form="list-photo"></button>
                 <form class="form" name="add-photo" action="#" id="list-photo">
                     <h2 class="form__title">Новое место</h2>
                     <fieldset class="form__input-wrap">
@@ -75,6 +75,13 @@
                 </form>
             </div>
         </section>
+        <section class="popup popup-open-photo">
+          <div class="popup-open-photo__container">
+            <button class="popup__close-button popup-open-photo__close-button" type="button"></button>
+            <img class="popup-open-photo__image"  src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" alt="Архыз" />
+            <h2 class="popup-open-photo__caption">Архыз</h2>
+          </div>
+      </section>
     </div>
     <script src="./scripts/index.js"></script>
 </body>
