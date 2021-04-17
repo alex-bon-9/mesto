@@ -1,9 +1,9 @@
 const popupEdit = document.querySelector('.popup_edit'); //сохранил попап в переменную popup
-const openPopupButton = document.querySelector('.profile__edit-button'); //сохраняем  кнопку редактировать в переменную.
+const openProfilePopupButton = document.querySelector('.profile__edit-button'); //сохраняем  кнопку редактировать в переменную.
 const closePopupButtons = document.querySelectorAll('.popup__close-button'); //сохраняем  кнопку закрыть в переменную.
 const backgroundPopupButton = document.querySelector('.popup'); //сохраняем  кнопку нажатия на подложку в переменную.
-const formPopupButton = document.querySelector('.form'); //сохраняем  форму чтобы при клике на форму поп-ап не исчезал
-const formElement = document.querySelector('.form'); // сохраняем форму профиля
+const clickOnTheFormButton = popupEdit.querySelector('.form'); //сохраняем  форму чтобы при клике на форму поп-ап не исчезал
+const formEditProfile = document.querySelector('.form'); // сохраняем форму профиля
 const nameInput = document.querySelector('.form__input_type_name'); //Находим поля формы в DOM
 const jobInput = document.querySelector('.form__input_type_job'); //Находим поля формы в DOM
 const titleProfile = document.querySelector('.profile__title'); //сохраняем заголовок профиля title
@@ -23,37 +23,7 @@ const openImage = document.querySelector('.popup-open-photo');
 const image = document.querySelector('.popup-open-photo__image');
 const caption = document.querySelector('.popup-open-photo__caption');
 
-const initialCards = [{
-        name: 'Пермский край',
-        link: './images/image1.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: './images/images2.jpg'
-    },
-    {
-        name: 'Архангельская область',
-        link: './images/image6.jpg'
-    },
-    {
-        name: 'Крым',
-        link: './images/image4.jpg'
-    },
-    {
-        name: 'Забайкалье',
-        link: './images/image5.jpg'
-    },
-    {
-        name: 'Курильские острова',
-        link: './images/image3.jpg'
-    }
-];
-
 function openPopup(popup) {
-  if (popup == popupEdit) {
-    nameInput.value = titleProfile.textContent; //Функция открытия модального окна заносит текущие данные пользователя в поля формы.
-    jobInput.value = textProfile.textContent; //
-  }
 	popup.classList.add('popup_opened');
 }
 
@@ -61,14 +31,26 @@ function closePopup(popup) {
     popup.classList.remove('popup_opened'); //поп-ап закрывается (удаляем класс)
 }
 
-function formSubmitHandler(evt) {
+function openPropfilePopup() {
+  nameInput.value = titleProfile.textContent; //Функция открытия модального окна заносит текущие данные пользователя в поля формы.
+  jobInput.value = textProfile.textContent; //
+  openPopup(popupEdit) //вызываем функцию для открытия попапа
+}
+
+function openAddPlacePopup() {
+  formAddFoto.reset();
+  openPopup(popupAddFoto);
+}
+
+function handleProfileSubmit(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   titleProfile.textContent = nameInput.value; // Выберите элементы, куда должны быть вставлены значения полей
   textProfile.textContent = jobInput.value; // Вставьте новые значения с помощью textContent
   closePopup(popupEdit); //вызвали функцию closePopup внутри
 }
 
-function AddPhotoSubmit(evt) {
+
+function addPhotoSubmit(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   const newCard = createCard({name:placeNameInput.value, link:linkInput.value});
   insertElementAfter.prepend(newCard);
@@ -87,7 +69,6 @@ function createCard(item) {
   elementTitle.textContent = item.name; //записать текст из массива в название
   elementImage.src = item.link; //записать картинку из массива в img
   elementImage.alt = item.name; //записать alt
-
   //здесь будут слушатели
   elementLike.addEventListener('click', function () {
     elementLike.classList.toggle('element__like-button_active');
@@ -102,11 +83,11 @@ function createCard(item) {
   return newElement; //возвращается созданная карточка
 }
 
-//функция добавления карточек
+//функция добавления карточек (разобрать пример, кода когда массив и контейнер передаются как памарты функции?!)
 function addCards() {
   initialCards.forEach((item) => {
-      const cardElement = createCard(item);
-      insertElementAfter.append(cardElement);
+    const cardElement = createCard(item);
+    insertElementAfter.append(cardElement);
   });
 }
 
@@ -117,12 +98,10 @@ function previewImage(name, link) {
   image.alt = name;
   openPopup(openImage)
 }
-
-formElement.addEventListener('submit', formSubmitHandler);
+//слушатель отправки формы профиля
+formEditProfile.addEventListener('submit', handleProfileSubmit);
 //добавляем кнопке редактировать слушатель
-openPopupButton.addEventListener('click', function() {
-    openPopup(popupEdit);
-});
+openProfilePopupButton.addEventListener('click', openPropfilePopup);
 //добавляем кнопке закрыть слушатель для
 closePopupButtons.forEach(function (button) {
   button.addEventListener('click', function() {
@@ -130,15 +109,10 @@ closePopupButtons.forEach(function (button) {
   });
 });
 //добавляем нажатию на слой
-backgroundPopupButton.addEventListener('click', function() {
-    closePopup(popupEdit);
+backgroundPopupButton.addEventListener('click', function(evt) {
+  if (evt.target.classList.contains('popup')) closePopup(popupEdit);
 });
-formPopupButton.addEventListener('click', function(event) {
-    event.stopImmediatePropagation();
-}); //добавляем стоп чтобы при нажатии на форму поп-ап не закрывался из Livecoding
-addPlaceButton.addEventListener('click', function () {
-  openPopup(popupAddFoto);
-});
-formAddFoto.addEventListener('submit', AddPhotoSubmit);
+addPlaceButton.addEventListener('click', openAddPlacePopup);
+formAddFoto.addEventListener('submit', addPhotoSubmit);
 
 addCards();
