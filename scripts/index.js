@@ -1,7 +1,6 @@
 const popupEdit = document.querySelector('.popup_edit'); //сохранил попап в переменную popup
 const openProfilePopupButton = document.querySelector('.profile__edit-button'); //сохраняем  кнопку редактировать в переменную.
 const closePopupButtons = document.querySelectorAll('.popup__close-button'); //сохраняем  кнопку закрыть в переменную.
-const backgroundPopupButton = document.querySelector('.popup'); //сохраняем  кнопку нажатия на подложку в переменную.
 const clickOnTheFormButton = popupEdit.querySelector('.form'); //сохраняем  форму чтобы при клике на форму поп-ап не исчезал
 const formEditProfile = document.querySelector('.form'); // сохраняем форму профиля
 const nameInput = document.querySelector('.form__input_type_name'); //Находим поля формы в DOM
@@ -22,23 +21,46 @@ const likebutton = likeTemplateButton.querySelector('.element__like-button'); //
 const openImage = document.querySelector('.popup-open-photo');
 const image = document.querySelector('.popup-open-photo__image');
 const caption = document.querySelector('.popup-open-photo__caption');
+const overlays = document.querySelectorAll('.popup');
+
 
 function openPopup(popup) {
 	popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupPressEsc);
 }
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened'); //поп-ап закрывается (удаляем класс)
+    document.removeEventListener('keydown', closePopupPressEsc);
+}
+
+function closePopupPressEsc(evt) {
+  if(evt.key === 'Escape') {
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
+  }
+}
+
+function closePopupOnClick () {
+//добавляем нажатию на слой
+  overlays.forEach((popup) => {
+    popup.addEventListener('click', function(evt) {
+      if (evt.target.classList.contains('popup'))
+        closePopup(popup);
+      })
+  })
 }
 
 function openPropfilePopup() {
   nameInput.value = titleProfile.textContent; //Функция открытия модального окна заносит текущие данные пользователя в поля формы.
-  jobInput.value = textProfile.textContent; //
+  jobInput.value = textProfile.textContent;
+  clearValidationInput(validateObject);
   openPopup(popupEdit) //вызываем функцию для открытия попапа
 }
 
 function openAddPlacePopup() {
   formAddFoto.reset();
+  clearValidationInput(validateObject);
   openPopup(popupAddFoto);
 }
 
@@ -46,6 +68,7 @@ function handleProfileSubmit(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   titleProfile.textContent = nameInput.value; // Выберите элементы, куда должны быть вставлены значения полей
   textProfile.textContent = jobInput.value; // Вставьте новые значения с помощью textContent
+  clearValidationInput(validateObject);
   closePopup(popupEdit); //вызвали функцию closePopup внутри
 }
 
@@ -83,7 +106,7 @@ function createCard(item) {
   return newElement; //возвращается созданная карточка
 }
 
-//функция добавления карточек (разобрать пример, кода когда массив и контейнер передаются как памарты функции?!)
+//функция добавления карточек
 function addCards() {
   initialCards.forEach((item) => {
     const cardElement = createCard(item);
@@ -98,6 +121,8 @@ function previewImage(name, link) {
   image.alt = name;
   openPopup(openImage)
 }
+
+document.addEventListener('click', closePopupOnClick);
 //слушатель отправки формы профиля
 formEditProfile.addEventListener('submit', handleProfileSubmit);
 //добавляем кнопке редактировать слушатель
@@ -108,11 +133,9 @@ closePopupButtons.forEach(function (button) {
     closePopup(this.closest('.popup'));
   });
 });
-//добавляем нажатию на слой
-backgroundPopupButton.addEventListener('click', function(evt) {
-  if (evt.target.classList.contains('popup')) closePopup(popupEdit);
-});
+
 addPlaceButton.addEventListener('click', openAddPlacePopup);
 formAddFoto.addEventListener('submit', addPhotoSubmit);
 
 addCards();
+

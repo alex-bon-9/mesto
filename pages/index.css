@@ -80,6 +80,7 @@
 @import url('../blocks/form/__input/_type_name/form__input_type_name.css');
 @import url('../blocks/form/__input/_type_job/form__input_type_job.css');
 @import url('../blocks/form/__save-button/form__save-button.css');
+@import url('../blocks/form/__save-button/_disable/form__save-button_disable.css');
 @import url('../blocks/form/form.css');
 
 /*popup-add*/
@@ -90,3 +91,6 @@
 @import url('../blocks/popup-open-photo/__close-button/popup-open-photo__close-button.css'); /*close button*/
 @import url('../blocks/popup-open-photo/__image/popup-open-photo__image.css'); /*image*/
 @import url('../blocks/popup-open-photo/__caption/popup-open-photo__caption.css'); /*caption*/
+@import url('../blocks/popup/__error/popup__error.css');
+@import url('../blocks/popup/__error/_visible/popup__error_visible.css');
+@import url('../blocks/form/__input/_type/form__input_type_error.css');
