@@ -57,8 +57,10 @@ const clearValidationInput = (validateObject) => {
 // и элемент кнопки, состояние которой нужно менять
 function toggleButtonState(inputList, buttonElement, validateObject) {
   if (hasInvalidInput(inputList)) {
+    buttonElement.setAttribute('disabled', true);
     buttonElement.classList.add(validateObject.inactiveButtonClass);
   } else {
+      buttonElement.removeAttribute('disabled');
       buttonElement.classList.remove(validateObject.inactiveButtonClass);
     }
 }

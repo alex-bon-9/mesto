@@ -107,7 +107,7 @@ function createCard(item) {
 }
 
 //функция добавления карточек
-function addCards() {
+function renderInitialCards() {
   initialCards.forEach((item) => {
     const cardElement = createCard(item);
     insertElementAfter.append(cardElement);
@@ -137,5 +137,5 @@ closePopupButtons.forEach(function (button) {
 addPlaceButton.addEventListener('click', openAddPlacePopup);
 formAddFoto.addEventListener('submit', addPhotoSubmit);
 
-addCards();
+renderInitialCards();
 

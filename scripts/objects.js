@@ -3,7 +3,7 @@ const validateObject = {
   inputSelector: '.form__input',
   submitButtonSelector: '.form__save-button',
   inactiveButtonClass: 'form__save-button_disable',
-  inputErrorClass: 'form__input_type_eror',
+  inputErrorClass: 'form__input_type_error',
   errorClass: 'popup__error_visible',
   errorEmptyInputMessage: 'Вы пропустили это поле.',
   errorEmptyUrlMessage: 'Введите адрес сайта.',
