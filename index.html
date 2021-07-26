@@ -51,12 +51,12 @@
             <!--невидимый на странице контент нужно выносить под footer, чтобы он не отнимал время для загрузки видимой части страницы-->
             <div class="popup__container">
                 <button class="popup__close-button" type="button" form="data"></button>
-                <form class="form" name="edit-profile" action="#" id="data">
+                <form class="form" name="edit-profile" action="#" id="data" novalidate>
                     <h2 class="form__title">Редактировать профиль</h2>
                     <fieldset class="form__input-wrap">
-                        <input class="form__input form__input_type_name" id="name-input" name="name" type="text" placeholder="Имя" form="data" value="Жак-Ив Кусто" required minlength="2" maxlength="40">
+                        <input class="form__input form__input_type_name" id="name-input" name="name" type="text" placeholder="Имя" form="data" value="Жак-Ив Кусто" minlength="2" maxlength="40" required>
                         <span class="popup__error" id="name-input-error"></span>
-                        <input class="form__input form__input_type_job" id="job-input" name="job" type="text" placeholder="О себе" form="data" value="Исследователь океана" required minlength="2" maxlength="200">
+                        <input class="form__input form__input_type_job" id="job-input" name="job" type="text" placeholder="О себе" form="data" value="Исследователь океана" minlength="2" maxlength="200" required>
                         <span class="popup__error" id="job-input-error"></span>
                     </fieldset>
                     <button class="form__save-button" type="submit" form="data">Сохранить</button>
@@ -67,10 +67,10 @@
             <!--невидимый на странице контент нужно выносить под footer, чтобы он не отнимал время для загрузки видимой части страницы-->
             <div class="popup__container">
                 <button class="popup__close-button" type="button" form="list-photo"></button>
-                <form class="form" name="add-photo" action="#" id="list-photo">
+                <form class="form" name="add-photo" action="#" id="list-photo" novalidate> <!--novalidate-->
                     <h2 class="form__title">Новое место</h2>
                     <fieldset class="form__input-wrap">
-                        <input class="form__input form__input_type_title" id="place-input" name="title" type="text" placeholder="Название" form="list-photo" required minlength="2" maxlength="30">
+                        <input class="form__input form__input_type_title" id="place-input" name="title" type="text" placeholder="Название" form="list-photo" minlength="2" maxlength="30" required>
                         <span class="popup__error" id="place-input-error"></span>
                         <input class="form__input form__input_type_link" id="link-input" name="link" type="url" placeholder="Ссылка на картинку" form="list-photo" required>
                         <span class="popup__error" id="link-input-error"></span>
@@ -87,10 +87,7 @@
           </div>
       </section>
     </div>
-    <script src="./scripts/objects.js"></script>
-    <script src="./scripts/initial-сards.js"></script>
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/validate.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
 </body>
 
 </html>
