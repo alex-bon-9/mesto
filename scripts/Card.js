@@ -1,9 +1,10 @@
 export class Card {
 
-  constructor(data, template, openPreviewImage) {
+  constructor(data,  template, openPreviewImage) {
     this._link = data.link;
     this._name = data.name;
-    this._template = template;//
+    this._template = template;
+    this._likeButton = ".element__like-button"; //ui.likebutton;
     this.openPreviewImage = openPreviewImage;
   }
 
@@ -13,7 +14,7 @@ export class Card {
   }
 
   _setCardListeners() {
-    this._element.querySelector('.element__like-button').addEventListener('click', () => {
+    this._element.querySelector(this._likeButton).addEventListener('click', () => {
       this._likeBtnClick();
     });
     this._element.querySelector('.element__delete-button').addEventListener('click', (event) => {
@@ -25,7 +26,7 @@ export class Card {
   }
 
   _likeBtnClick() {
-    this._element.querySelector('.element__like-button').classList.toggle('element__like-button_active');
+    this._element.querySelector(this._likeButton).classList.toggle('element__like-button_active');
   }
 
   _delBtnClick() {
@@ -38,7 +39,7 @@ export class Card {
     this._setCardListeners();
 
     this._element.querySelector('.element__group-title').textContent = this._name;
-    this._element.querySelector('.element__group-title').alt = this._name;
+    this._element.querySelector('.element__image').alt = this._name;
     this._element.querySelector('.element__image').src = this._link;
 
     return this._element;

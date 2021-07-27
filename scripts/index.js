@@ -26,14 +26,14 @@ function closePopupPressEsc(evt) {
   }
 }
 
-function closePopupOnClick () {
-  ui.previewImagePopupOverlays.forEach((popup) => {
-    popup.addEventListener('click', function(evt) {
-      if (evt.target.classList.contains('popup'))
-        closePopup(popup);
-      })
-  })
-}
+// function closePopupOnClick () {
+//   ui.previewImagePopupOverlays.forEach((popup) => {
+//     popup.addEventListener('click', function(evt) {
+//       if (evt.target.classList.contains('popup'))
+//         closePopup(popup);
+//       })
+//   })
+// }
 
 function openPropfilePopup() {
   ui.nameInput.value = ui.titleProfile.textContent;
@@ -87,17 +87,33 @@ function renderCards() {
   openPopup(ui.previewImagePopup)
 }
 
-document.addEventListener('click', closePopupOnClick);
+// document.addEventListener('click', closePopupOnClick); v1.0
+// closePopupOnClick(); v1.1
+
 
 ui.formEditProfile.addEventListener('submit', handleProfileSubmit);
 
 ui.openProfilePopupButton.addEventListener('click', openPropfilePopup);
 
-ui.closePopupButtons.forEach(function (button) {
-  button.addEventListener('click', function() {
-    closePopup(this.closest('.popup'));
-  });
-});
+// ui.closePopupButtons.forEach(function (button) {
+//   button.addEventListener('click', function() {
+//     closePopup(this.closest('.popup'));
+//   });
+// });
+
+// объединили обработчики Оверлея и Крестиков:
+const popups = document.querySelectorAll('.popup');
+
+  popups.forEach((popup) => {
+    popup.addEventListener('click', (evt) => {
+      if (evt.target.classList.contains('popup_opened')) {
+        closePopup(popup)
+      }
+      if (evt.target.classList.contains('popup__close-button')) {
+        closePopup(popup)
+      }
+    })
+  })
 
 ui.addPlaceButton.addEventListener('click', openAddPlacePopup);
 ui.formAddFoto.addEventListener('submit', addPhotoSubmit);
