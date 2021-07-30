@@ -1,4 +1,4 @@
-export { ui, validateObject, profileEditorPopup, newPlacePopup };
+export { ui, validateObject, profileEditorPopup, newPlacePopup, popupsObj };
 
 const ui = {
   profileEditorPopup : document.querySelector('.popup_edit'), //сохранил попап редактир профиля в переменную
@@ -38,6 +38,13 @@ const validateObject = {
   errorEmptyInputMessage: 'Вы пропустили это поле.',
   errorEmptyUrlMessage: 'Введите адрес сайта.',
   inputUrlClass: 'form__input_type_link'
+};
+
+const popupsObj = {
+  popups: document.querySelectorAll('.popup'),
+  buttonClosePopup: 'popup__close-button',
+  // buttonCloseModal: document.querySelector('.popup__button'),
+  popupOpened: 'popup_opened'
 };
 
 const profileEditorPopup = document.querySelector('.popup_edit'); //сохранил попап редактир профиля в переменную

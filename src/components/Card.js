@@ -1,15 +1,15 @@
 export class Card {
 
-  constructor(data,  template, openPreviewImage) {
-    this._link = data.link;
-    this._name = data.name;
+  constructor({name, link}, {openPreviewImage}, template) {
+    this._name = name;
+    this._image = link;
     this._template = template;
     this._likeButton = ".element__like-button"; //ui.likebutton;
-    this.openPreviewImage = openPreviewImage;
+    this._openPreviewImage = openPreviewImage;
   }
 
   _getTempalte() {
-    const newElement = this._template.querySelector('.element__item').cloneNode(true);
+    const newElement = document.querySelector(this._template).content.querySelector('.element__item').cloneNode(true);
     return newElement;
   }
 
@@ -21,7 +21,7 @@ export class Card {
       this._delBtnClick(event);
     });
     this._element.querySelector('.element__image').addEventListener('click', () => {
-      this.openPreviewImage(this._name, this._link);
+      this._openPreviewImage(this._name, this._image);
     });
   }
 
@@ -40,7 +40,7 @@ export class Card {
 
     this._element.querySelector('.element__group-title').textContent = this._name;
     this._element.querySelector('.element__image').alt = this._name;
-    this._element.querySelector('.element__image').src = this._link;
+    this._element.querySelector('.element__image').src = this._image;
 
     return this._element;
   }

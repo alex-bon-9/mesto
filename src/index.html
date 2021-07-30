@@ -4,20 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>Место</title>
-    <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<%=require('./images/favicon-32x32.png')%>" type="image/x-icon">
 </head>
 
 <body class="page">
     <div class="page__container">
         <header class="header">
-            <img class="header__logo" src="./images/logo.svg" alt="Логотип" />
+            <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип" />
         </header>
         <main class="content">
 
             <section class="profile" aria-label="секция профиль">
-                <img class="profile__avatar" src="./images/image__kusto.png" alt="аватар исследователя" />
+                <img class="profile__avatar" src="<%=require('./images/image__kusto.png')%>" alt="аватар исследователя" />
                 <div class="profile__info">
                     <div class="profile__title-wrap">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -34,7 +33,7 @@
                     <template class="element-template">
           <li class="element__item">
             <button class="element__delete-button" aria-label="delete" type="button"></button>
-            <img class="element__image" alt="Ординская пещера" src="./images/image1.jpg" />
+            <img class="element__image" alt="#" src="#" />
             <div class="element__group">
               <h2 class="element__group-title">Пермский край</h2>
               <button class="element__like-button" type="button"></button>
@@ -83,12 +82,11 @@
         <section class="popup popup-open-photo">
           <div class="popup-open-photo__container">
             <button class="popup__close-button popup-open-photo__close-button" type="button"></button>
-            <img class="popup-open-photo__image"  src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" alt="Архыз" />
+            <img class="popup-open-photo__image"  src="#" alt="#" />
             <h2 class="popup-open-photo__caption">Архыз</h2>
           </div>
       </section>
     </div>
-    <script type="module" src="./scripts/index.js"></script>
 </body>
 
 </html>
