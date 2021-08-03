@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Место</title>
     <link rel="shortcut icon" href="<%=require('./images/favicon-32x32.png')%>" type="image/x-icon">
+    
 </head>
 
 <body class="page">
@@ -16,7 +17,9 @@
         <main class="content">
 
             <section class="profile" aria-label="секция профиль">
-                <img class="profile__avatar" src="<%=require('./images/image__kusto.png')%>" alt="аватар исследователя" />
+                <!--<img class="profile__avatar" src="<%=require('./images/image__kusto.png')%>" alt="аватар исследователя" /> -->
+                <button class="profile__image-button" type="button"><img alt="аватар исследователя" class="profile__avatar" src="#"></button>
+
                 <div class="profile__info">
                     <div class="profile__title-wrap">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -30,13 +33,16 @@
 
             <section class="elements" aria-label="секция карточек">
                 <ul class="element">
-                    <template class="element-template">
-          <li class="element__item">
-            <button class="element__delete-button" aria-label="delete" type="button"></button>
-            <img class="element__image" alt="#" src="#" />
-            <div class="element__group">
-              <h2 class="element__group-title">Пермский край</h2>
-              <button class="element__like-button" type="button"></button>
+                <template class="element-template">
+                    <li class="element__item">
+                    <button class="element__delete-button" aria-label="delete" type="button"></button>
+                    <img class="element__image" alt="#" src="#" />
+                    <div class="element__group">
+                    <h2 class="element__group-title">Пермский край</h2>
+                    <div class="element__like-wrap">
+                    <button class="element__like-button" type="button"></button>
+                    <span class="element__like-counter"></span>
+              </div>  
             </div>
           </li>
           </template>
@@ -79,13 +85,35 @@
                 </form>
             </div>
         </section>
+        <section class="popup popup_type_update-avatar">
+            <div class="popup__container popup__container_type_update-avatar">
+              <button type="button" class="popup__close-button popup__close-button_type_update-avatar"></button>
+              <form name="avatar-form" action="#" class="form form_type_update-avatar" novalidate>
+                <h3 class="form__title">Обновить аватар</h3>
+                <fieldset class="form__input-wrap">
+                    <input type="url" name="avatar" id="avatar-input" required placeholder="Ссылка на картинку" class="form__input form__input_type_url">
+                    <span class="popup__error" id="avatar-input-error"></span>
+                </fieldset>
+                <button type="submit" class="form__save-button form__save-button_type_update-avatar">Создать</button>
+              </form>
+            </div>
+        </section>
+        <section class="popup popup_type_confirm-delete">
+            <div class="popup__container popup__container_type_confirm-delete">
+              <button type="button" class="popup__close-button popup__close-button_type_confirm-delete"></button>  
+              <form name="delete-form" action="#" class="form form_type_confirm-delete" novalidate>
+                <h3 class="form__title form__title_confirm-delete">Вы уверены?</h3>
+                <button type="submit" class="form__save-button form__save-button_type_confirm-delete">Да</button>
+              </form>
+            </div>
+        </section>
         <section class="popup popup-open-photo">
           <div class="popup-open-photo__container">
             <button class="popup__close-button popup-open-photo__close-button" type="button"></button>
             <img class="popup-open-photo__image"  src="#" alt="#" />
             <h2 class="popup-open-photo__caption">Архыз</h2>
           </div>
-      </section>
+        </section>
     </div>
 </body>
 

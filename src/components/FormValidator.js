@@ -1,5 +1,8 @@
+// import {validateObject} from '../utils/ui.js';//уд
+
 export class FormValidator {
   constructor(validateObject, formElement) {
+    // this._validateObject = validateObject; //уд
     this._form = formElement;
     this._inputList = Array.from(this._form.querySelectorAll(validateObject.inputSelector));
     this._buttonElement = this._form.querySelector(validateObject.submitButtonSelector);

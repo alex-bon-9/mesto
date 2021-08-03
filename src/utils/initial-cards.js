@@ -1,9 +1,9 @@
-import permImage from '../images/image1.jpg';
-import kamchatkaImage from '../images/images2.jpg';
-import arhangelskImage from '../images/image6.jpg';
-import crimImage from '../images/image4.jpg';
-import zabaikalieImage from '../images/image5.jpg';
-import kuriliImage from '../images/image3.jpg';
+const permImage = new URL('../images/image1.jpg', import.meta.url);
+const kamchatkaImage = new URL('../images/images2.jpg', import.meta.url);
+const arhangelskImage = new URL('../images/image6.jpg', import.meta.url);
+const crimImage = new URL('../images/image4.jpg', import.meta.url);
+const zabaikalieImage = new URL('../images/image5.jpg', import.meta.url);
+const kuriliImage = new URL('../images/image3.jpg', import.meta.url);
 
 export const initialCards = [{
   name: 'Пермский край',

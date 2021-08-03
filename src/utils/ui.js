@@ -1,4 +1,4 @@
-export { ui, validateObject, profileEditorPopup, newPlacePopup, popupsObj };
+export { ui, validateObject, profileEditorPopup, newPlacePopup, confirmDeletePopup, updateAvatar };
 
 const ui = {
   profileEditorPopup : document.querySelector('.popup_edit'), //сохранил попап редактир профиля в переменную
@@ -14,6 +14,8 @@ const ui = {
   insertElementAfter : document.querySelector('.element'), // после чего добавляем карточки
   newPlacePopup : document.querySelector('.popup_add-photo'), //сохранил попап Add-photo в переменную popup
   formAddFoto : document.querySelector('.popup_add-photo').querySelector('.form'), // сохраняем форму добавления фото
+  formProfileEdit : document.querySelector('.popup_edit').querySelector('.form'), // сохраняем форму редактир профиля
+  avatarEditingButton : document.querySelector('.profile__image-button'), //кнопка меняем аватар 
   placeNameInput : document.querySelector('.form__input_type_title'), //Находим поле формы - название
   linkInput : document.querySelector('.form__input_type_link'), //Находим поле формы - ссылка
   addPlaceButton : document.querySelector('.profile__add-button'), //сохраняем  кнопку добавить место в переменную.
@@ -40,12 +42,16 @@ const validateObject = {
   inputUrlClass: 'form__input_type_link'
 };
 
-const popupsObj = {
-  popups: document.querySelectorAll('.popup'),
-  buttonClosePopup: 'popup__close-button',
-  // buttonCloseModal: document.querySelector('.popup__button'),
-  popupOpened: 'popup_opened'
-};
+// const popupsObj = { //экспорт удалил
+//   popups: document.querySelectorAll('.popup'),
+//   buttonClosePopup: 'popup__close-button',
+//   popupOpened: 'popup_opened'
+//   // buttonCloseModal: document.querySelector('.popup__button'),
+// };
 
 const profileEditorPopup = document.querySelector('.popup_edit'); //сохранил попап редактир профиля в переменную
 const newPlacePopup = document.querySelector('.popup_add-photo'); //сохранил попап Add-photo в переменную popup
+
+const confirmDeletePopup = document.querySelector('.popup_type_confirm-delete');
+const updateAvatar = document.querySelector('.popup_type_update-avatar');
+

@@ -24,6 +24,7 @@
 /*profile*/
 
 @import url('../blocks/profile/__avatar/profile__avatar.css');
+@import url('../blocks/profile/__image-button/profile__image-button.css');
 @import url('../blocks/profile/__info/profile__info.css');
 @import url('../blocks/profile/__title-wrap/profile__title-wrap.css');
 @import url('../blocks/profile/__title/profile__title.css');
@@ -47,17 +48,21 @@
 /*карточка*/
 
 @import url('../blocks/element/__delete-button/element__delete-button.css');
+@import url('../blocks/element/__delete-button/_invisible/element__delete-button_invisible.css');
 @import url('../blocks/element/__image/element__image.css');
 @import url('../blocks/element/__group/element__group.css');
 @import url('../blocks/element/__group-title/element__group-title.css');
 @import url('../blocks/element/__like-button/element__like-button.css');
+@import url('../blocks/element/__like-wrap/element__like-wrap.css');
 @import url('../blocks/element/__like-button/_active/element__like-button_active.css');
+@import url('../blocks/element/__like-counter/element__like-counter.css');
 @import url('../blocks/footer/footer.css');
 
 /*footer*/
 
 @import url('../blocks/footer/__copyright/footer__copyright.css');
 @import url('../blocks/popup/popup.css');
+@import url('../blocks/popup/_type/popup_type_confirm-delete.css');
 
 /*popup*/
 
@@ -66,7 +71,14 @@
 /*popup_opened*/
 
 @import url('../blocks/popup/__container/popup__container.css');
+@import url('../blocks/popup/__container/_type/popup__container_type_update-avatar.css');
+@import url('../blocks/popup/__container/_type/popup__container_type_confirm-delete.css');
+
+
 @import url('../blocks/popup/__close-button/popup__close-button.css');
+@import url('../blocks/popup/__close-button/_type/popup__close-button_type_confirm-delete.css');
+
+
 
 /*кнопка закрытия*/
 
@@ -75,6 +87,7 @@
 /*form*/
 
 @import url('../blocks/form/__title/form__title.css');
+@import url('../blocks/form/__title/_confirm-delete/form__title_confirm-delete.css');
 @import url('../blocks/form/__input-wrap/form__input-wrap.css');
 @import url('../blocks/form/__input/form__input.css');
 @import url('../blocks/form/__input/_type_name/form__input_type_name.css');
