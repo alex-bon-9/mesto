@@ -28,6 +28,7 @@ const popupImage = new PopupWithImage(ui.previewImagePopup);
 //ПопАп редактирования профиля
 const popupEditProfile = new PopupWithForm(ui.profileEditorPopup, {
   handlerSubmit: (data) => {
+    popupEditProfile.changeButtonStatus(true);
     api.editUserData(data.name, data.job)
       .then(result => {
         userInfo.setUserInfo(result.name, result.about);
@@ -36,26 +37,35 @@ const popupEditProfile = new PopupWithForm(ui.profileEditorPopup, {
       .catch((err) => {
         console.log(err); // здесь можно еще подумать и подредактировать (метод кэтч и файнали -- сохранить)
     })
+    .finally(() => { 
+      popupEditProfile.changeButtonStatus(false);
+  });
   }
 });
 
 //попАп добавления карточки
 const popupAddCard = new PopupWithForm(ui.newPlacePopup, {
   handlerSubmit: (data) => {
+    // window.console.log('клик');
+    popupAddCard.changeButtonStatus(true);
     api.addCard(data.title, data.link) //было до - data.title переименовал на data.name
       .then(result => {
         const element = createCard(result)
         section.addItem(element, 'prepend');
+        popupAddCard.close();
         })
       .catch((err) => {
         console.log(err);
       })
-    popupAddCard.close();
+      .finally(() => { 
+        popupAddCard.changeButtonStatus(false);
+    });
     }
 });
 
 const popupUpdateAvatar = new PopupWithForm(updateAvatar, {
   handlerSubmit: ({link}) => {
+    popupUpdateAvatar.changeButtonStatus(true);
     api.updateAvatar(link)
       .then(({avatar}) => {
         userInfo.setUserAvatar(avatar);
@@ -64,20 +74,27 @@ const popupUpdateAvatar = new PopupWithForm(updateAvatar, {
       .catch((err) => {
         console.log(err);
       })
+      .finally(() => { 
+        popupUpdateAvatar.changeButtonStatus(false);
+    });
   }
 })
 
 //Попап удаления карточки
 const popupDelete = new  PopupWithConfirmDelete(confirmDeletePopup, {
   submitHandler: (cardId) => {
-      api.cardDelete(cardId)
-        .then((data) => {
-          popupDelete.cardElement.remove()
-          popupDelete.close();
-        })
-        .catch((err) => {
-          console.log(err);
-        })
+    popupDelete.changeButtonStatus(true);  
+    api.cardDelete(cardId)
+      .then((data) => {
+        popupDelete.cardElement.remove()
+        popupDelete.close();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => { 
+        popupDelete.changeButtonStatus(false);
+    }); 
   }
 })
 
@@ -119,7 +136,8 @@ function createCard(item) {
     handleCardLike: (cardId) => {
       api.setLike(cardId)
         .then(({likes}) => {
-          card._likes = likes;
+          // card._likes = likes;
+          card.likes = likes;
           card.updateLikesCounter();
         })
         .catch((err) => {
@@ -129,7 +147,8 @@ function createCard(item) {
     handleCardDislike: (cardId) => {
       api.removeLike(cardId)
         .then(({likes}) => {
-          card._likes = likes;
+          // card._likes = likes;
+          card.likes = likes;
           card.updateLikesCounter();
         })
         .catch((err) => {
@@ -149,24 +168,13 @@ const api = new Api({
   }
 })
 
-Promise.all([
-  api.getUserInfo()
-    .then((data) => {
-      userInfo.setUserInfo(data.name, data.about, data._id)
-      userInfo.setUserAvatar(data.avatar);
-    })
-    .catch((err) => {
-      console.log(err);
-    }),
-  api.getInitialCards()
-    .then(data => {
-      section.renderer(data)
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-])
-  .catch(error => console.log(error))
+Promise.all([ api.getUserInfo(), api.getInitialCards() ])
+.then(([userData, initialCards]) => {
+  userInfo.setUserInfo(userData.name, userData.about, userData._id, userData.avatar);
+  // userInfo.setUserAvatar(userData.avatar);
+  section.renderer(initialCards);
+})
+.catch(error => console.log(error))
 
 
 ui.openProfilePopupButton.addEventListener('click', openPropfilePopup);

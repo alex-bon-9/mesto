@@ -13,10 +13,12 @@ export class UserInfo {
     const avatar = this._avatar;
     return {name, about, id, avatar };
   };
-  setUserInfo(name, about, id) {
+  setUserInfo(name, about, id, avatar) {
+
     if (name) { this._name.textContent = name;}
     if (about) {this._about.textContent = about;}
     if (id) {this._id = id;}
+    if (avatar) {this._avatar.src = avatar};
   };
 
   setUserAvatar(link) {

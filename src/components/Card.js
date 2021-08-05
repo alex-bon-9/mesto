@@ -15,7 +15,8 @@ export class Card {
     this._imageElement = '.element__image'; 
     this._cardDelete = '.element__delete-button';
     this._cardTitle = '.element__group-title';
-    this._likes = likes;
+    // this._likes = likes;
+    this.likes = likes;
     this._handleCardLike = handleCardLike;
     this._handleCardDislike = handleCardDislike;
     this._element = this._getTempalte();
@@ -57,7 +58,7 @@ export class Card {
         this._element.querySelector(this._cardDelete).classList.add('element__delete-button_invisible');
     }
 
-    this._likes.forEach((like) => {
+    this.likes.forEach((like) => {
       if (like._id === this._userId) {
         this._element.querySelector(this._likeButton).classList.toggle('element__like-button_active');
         return;
@@ -68,7 +69,7 @@ export class Card {
   }
 
   updateLikesCounter() {
-    this._element.querySelector('.element__like-counter').textContent = this._likes.length;
+    this._element.querySelector('.element__like-counter').textContent = this.likes.length;
   }
 
   _addlike() {
