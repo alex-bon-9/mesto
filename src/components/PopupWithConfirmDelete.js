@@ -8,7 +8,6 @@ export class PopupWithConfirmDelete extends Popup {
     constructor(popup, {submitHandler}) {
         super(popup);
         this._submitHandler = submitHandler;
-        this._buttonStatus = this._popup.querySelector('.form__save-button_type_confirm-delete');
     }
 
     open(cardId, element) {
@@ -19,7 +18,7 @@ export class PopupWithConfirmDelete extends Popup {
 
     setEventListeners() {
         super.setEventListeners();
-        this._popup.addEventListener('submit', (evt) => { // this.element.addEventListener('submit', (evt) => {
+        this._popup.addEventListener('submit', (evt) => { 
           evt.preventDefault();
           // this.changeDeleteButtonStatus();
           this._submitHandler(this._cardId);

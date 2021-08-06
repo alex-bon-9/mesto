@@ -76,7 +76,7 @@ export class Api {
     }
 
     updateAvatar(link) {
-        console.log(link)
+        // console.log(link)
         return fetch(`${this._address}/users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,

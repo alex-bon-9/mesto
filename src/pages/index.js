@@ -1,4 +1,3 @@
-// import { initialCards } from '../utils/initial-cards.js';
 import { validateObject, ui, confirmDeletePopup, updateAvatar } from '../utils/ui.js';
 import { Card} from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
@@ -11,7 +10,6 @@ import { PopupWithConfirmDelete } from '../components/PopupWithConfirmDelete.js'
 import './index.css'; 
 
 const validateFormEdit = new FormValidator(validateObject, ui.formProfileEdit);
-// const validateFormEdit = new FormValidator(validateObject, ui.formEditProfile); было
 validateFormEdit.enableValidation();
 const validateFormAdd = new FormValidator(validateObject, ui.formAddFoto);
 validateFormAdd.enableValidation();
@@ -46,9 +44,8 @@ const popupEditProfile = new PopupWithForm(ui.profileEditorPopup, {
 //попАп добавления карточки
 const popupAddCard = new PopupWithForm(ui.newPlacePopup, {
   handlerSubmit: (data) => {
-    // window.console.log('клик');
     popupAddCard.changeButtonStatus(true);
-    api.addCard(data.title, data.link) //было до - data.title переименовал на data.name
+    api.addCard(data.title, data.link) 
       .then(result => {
         const element = createCard(result)
         section.addItem(element, 'prepend');
@@ -136,7 +133,6 @@ function createCard(item) {
     handleCardLike: (cardId) => {
       api.setLike(cardId)
         .then(({likes}) => {
-          // card._likes = likes;
           card.likes = likes;
           card.updateLikesCounter();
         })
@@ -147,7 +143,6 @@ function createCard(item) {
     handleCardDislike: (cardId) => {
       api.removeLike(cardId)
         .then(({likes}) => {
-          // card._likes = likes;
           card.likes = likes;
           card.updateLikesCounter();
         })
@@ -170,8 +165,8 @@ const api = new Api({
 
 Promise.all([ api.getUserInfo(), api.getInitialCards() ])
 .then(([userData, initialCards]) => {
-  userInfo.setUserInfo(userData.name, userData.about, userData._id, userData.avatar);
-  // userInfo.setUserAvatar(userData.avatar);
+  userInfo.setUserInfo(userData.name, userData.about, userData._id);
+  userInfo.setUserAvatar(userData.avatar); 
   section.renderer(initialCards);
 })
 .catch(error => console.log(error))

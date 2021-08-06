@@ -9,7 +9,6 @@ export class PopupWithForm extends Popup {
     super(popup);
     this._submitForm = handlerSubmit;
     this._form = this._popup.querySelector('.form');
-    // this._buttonStatus = this._popup.querySelector('.form__save-button');
     this._inputs = this._form.querySelectorAll('.form__input');
 
   }

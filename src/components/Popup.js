@@ -1,9 +1,6 @@
-// import { popupsObj } from "../utils/ui.js"; -убрал
-
 export class Popup { //класc отвечает за открытие и закрытие попапа.
   constructor(popup) {
     this._popup = popup; //Принимает в конструктор единственный параметр — селектор попапа.
-    // this._popup = document.querySelector(popup); //Принимает в конструктор единственный параметр — селектор попапа.
     this._buttonStatus = this._popup.querySelector('.form__save-button');
   }
 
@@ -18,20 +15,14 @@ export class Popup { //класc отвечает за открытие и за�
   }
 
   changeButtonStatus(isLoading) { 
-      if (isLoading) {
-        this._buttonStatus.textContent = this._loadingLabelTrue;
-      } else {
-        this._buttonStatus.textContent = this._loadingLabelFalse;
-      }
-  };
-  
-  // changeButtonStatus2(isLoading) { // работает когда вызываем как changeButtonStatus2 если в одном методе ошибка???
-  //   if (isLoading) {
-  //     this._saveButton.textContent = this._loadingLabelTrue;
-  //   } else {
-  //     this._saveButton.textContent = this._loadingLabelFalse;
-  //   }
-  // };
+    if (!this._buttonStatus)  return; 
+
+    if (isLoading) {
+      this._buttonStatus.textContent = this._loadingLabelTrue;
+    } else {
+      this._buttonStatus.textContent = this._loadingLabelFalse;
+    }
+  }
 
   _closePopupPressEsc = (evt) => { //приватный метод который содержит логику закрытия попапа клавишей Esc.
     if(evt.key === 'Escape') {
